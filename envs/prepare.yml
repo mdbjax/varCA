@@ -1,5 +1,7 @@
 channels:
   - defaults
+  - bioconda
+  - conda-forge
 dependencies:
   - r-pbapply==1.4_2
   - r-stringr==1.4.0

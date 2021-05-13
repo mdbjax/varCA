@@ -38,7 +38,7 @@ genome: data/hg38.chr1.fa
 # The path to the directory in which to place all of the output files
 # Defined relative to whatever directory you execute the snakemake command in
 # Defaults to "out" if this line is commented out or set to a falsey value
-out: out
+out: output
 
 # Which callers do you want to run to find SNVs?
 # If you don't want to run the snp pipeline, set this to a falsey value or comment out the line
@@ -81,3 +81,12 @@ snp_model: data/snp.rda
 # The path to a trained, ensemble classifier, which can be used for calling indels
 # required!
 indel_model: data/indel.rda
+
+restart-times: 3
+jobscript: "slurm-jobscript.sh"
+cluster: "slurm-submit.py"
+cluster-status: "slurm-status.py"
+max-jobs-per-second: 1
+max-status-checks-per-second: 10
+local-cores: 1
+latency-wait: 60
