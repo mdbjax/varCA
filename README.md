@@ -6,6 +6,8 @@ A pipeline for running an ensemble of variant callers to predict variants from A
 
 The entire pipeline is made up of two smaller subworkflows. The `prepare` subworkflow calls each variant caller and prepares the resulting data for use by the `classify` subworkflow, which uses an ensemble classifier to predict the existence of variants at each site.
 
+NOTE: THIS BRANCH IS A VERSION PROVIDED BY JAX RIT TO RUN ON OUR SLURM-BASED CLUSTER 
+
 ### [Code Ocean](https://codeocean.com/capsule/6980349/tree/v1)
 Using [our Code Ocean compute capsule](https://codeocean.com/capsule/6980349/tree/v1), you can execute [VarCA v0.2.1](https://github.com/aryarm/varCA/releases/tag/v0.2.1) on example data without downloading or setting up the project. To interpret the output of VarCA, see the output sections of the [`prepare` subworkflow](rules#output) and the [`classify` subworkflow](rules#output-1) in the [rules README](rules/README.md).
 
@@ -38,10 +40,7 @@ We highly recommend you install [Snakemake via conda](https://snakemake.readthed
     ```
     ./run.bash &
     ```
-    __or__ on an SGE cluster:
-    ```
-    ./run.bash --sge-cluster &
-    ```
+
 #### Output
 VarCA will place all of its output in a new directory (`out/`, by default). Log files describing the progress of the pipeline will also be created there: the `log` file contains a basic description of the progress of each step, while the `qlog` file is more detailed and will contain any errors or warnings. You can read more about the pipeline's output in the [rules README](rules/README.md).
 
